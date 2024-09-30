@@ -1,7 +1,7 @@
-const Product = require('./Product');
+const Product = require('./Product.js');
 
 class Cart {
-    constructor(products, total) {
+    constructor() {
         this.products = [];
         this.total = 0;
 
