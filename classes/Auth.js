@@ -1,4 +1,4 @@
-// Auth.js
+
 const Customer = require('./Customer');
 
 class Auth {
@@ -19,8 +19,12 @@ class Auth {
       }
     }
     
-  
+    
+    return null;
   }
+    
+  
+  
   
 }
 
