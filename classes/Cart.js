@@ -1,21 +1,27 @@
-const Product = require('./Product.js');
+const Product = require('./Product');
 
 class Cart {
-    constructor() {
-        this.products = [];
-        this.total = 0;
+  constructor() {
+    this.products = []; 
+    this.total = 0;     
+  }
 
+  addProduct(product) {
+    if (!(product instanceof Product)) {
+      throw new Error('Only instances of Product can be added');
     }
-    addProcuct(product) {
-        this.products.push(product);
-        this.total += product.price;
-    }
+    this.products.push(product); 
+    this.total += product.price;  
+  }
 
-    removeProduct(index) {
-        this.products.splice(index, 1);
-        this.total -= this.products[index].price;
+  removeProduct(index) {
+    if (index >= 0 && index < this.products.length) {
+      this.total -= this.products[index].price; 
+      this.products.splice(index, 1); 
+    } else {
+      console.log('Invalid index'); 
     }
-
+  }
 }
 
 module.exports = Cart;
